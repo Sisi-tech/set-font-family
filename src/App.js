@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+// import ReactDOM from "react-dom";
 
-function App() {
+const App = () => {
+  const [family, setFamily ] = useState("Verdana");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Web-Safe Font Families</h1>
+      <label for="selector">These are the common, web-safe font families of the internet:</label>
+      <select id="selector" value={family} onChange={(e)=>{ setFamily(e.target.value)}}>
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Tahoma">Tahoma</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Brush Script MT">Brush Script MT</option>
+      </select>
+      <h3>Sample Text:</h3>
+      <p style={{fontFamily:family}}>Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma  which is living with the results of other people's thinking. -Steve Jobs</p>
     </div>
-  );
-}
+  )
+ }
+
 
 export default App;
